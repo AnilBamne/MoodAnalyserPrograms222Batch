@@ -8,20 +8,33 @@ namespace MoodAnalyser222Batch
 {
     public class MoodAnalyser
     {
+        public string message;
+        /// <summary>
+        /// Taking mood message in constructor as parameter
+        /// </summary>
+        /// <param name="message"></param>
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
         /// <summary>
         /// Taking Method with parameter.
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public string AnalyseMood(string message)
+        public string AnalyseMood()
         {
             if (message.ToLower().Contains("sad"))      //comparing
             {
                 return "SAD";
             }
-            else
+            else if (message.ToLower().Contains("Happy"))
             {
                 return "HAPPY";
+            }
+            else
+            {
+                return "wrongInput";
             }
         }
     }

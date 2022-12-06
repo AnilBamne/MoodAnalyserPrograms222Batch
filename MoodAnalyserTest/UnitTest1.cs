@@ -11,32 +11,34 @@ namespace MoodAnalyserTest
     {
         /// <summary>
         /// Test method
-        /// when given sad mood , retunr SAD
+        /// Refactor 1 : Taking mood message in constructor
+        /// TC 1.1 :when - Iam in sad mood , then - retunr SAD
         /// </summary>
-        [TestMethod]                                            //TC1.1
+        [TestMethod]                                            //Refactor 1 -TC1.1
         public void Given_WhenSadMood_ThenReturn_SAD()
         {
             //AAA- Arrange-Act-Assert
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            MoodAnalyser moodAnalyser = new MoodAnalyser("Iam in Sad mood");
             //Arrange
-            string message = "Iam in Sad mood";
             string expected = "SAD";
             //Act
-            string actual=moodAnalyser.AnalyseMood(message);
+            string actual=moodAnalyser.AnalyseMood();
             //Assert
             //Using Assert class for testing
             Assert.AreEqual(expected, actual);
         }
-        [TestMethod]                                            //TC1.2
+        /// <summary>
+        /// TC 1.1 : When - Iam in Any mood Then - return Happy
+        /// </summary>
+        [TestMethod]                                            //Refactor 1-TC1.2
         public void Given_WhenAnyMood_ThenReturn_HAPPY()
         {
             //AAA- Arrange-Act-Assert
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            MoodAnalyser moodAnalyser = new MoodAnalyser("Iam in Happy mood");
             //Arrange
-            string message = "Iam in Any mood";
             string expected = "HAPPY";
             //Act
-            string actual = moodAnalyser.AnalyseMood(message);
+            string actual = moodAnalyser.AnalyseMood();
             //Assert
             //Using Assert class for testing
             Assert.AreEqual(expected, actual);

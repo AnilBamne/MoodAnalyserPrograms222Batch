@@ -8,7 +8,7 @@ namespace MoodAnalyser222Batch
 {
     public class MoodAnalyser
     {
-        public string message;
+        private string message;
         /// <summary>
         /// Taking mood message in constructor as parameter
         /// </summary>
@@ -18,23 +18,33 @@ namespace MoodAnalyser222Batch
             this.message = message;
         }
         /// <summary>
+        /// Default constructor
+        /// </summary>
+        public MoodAnalyser()
+        {
+
+        }
+        /// <summary>
         /// Taking Method with parameter.
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
         public string AnalyseMood()
         {
-            if (message.ToLower().Contains("sad"))      //comparing
+            try
             {
-                return "SAD";
+                if (message.ToLower().Contains("sad"))      //comparing
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
             }
-            else if (message.ToLower().Contains("Happy"))
+            catch                 //UC2 : Handling exception when given Null Mood 
             {
                 return "HAPPY";
-            }
-            else
-            {
-                return "wrongInput";
             }
         }
     }

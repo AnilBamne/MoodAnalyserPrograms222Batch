@@ -43,5 +43,23 @@ namespace MoodAnalyserTest
             //Using Assert class for testing
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// UC2 --> TC2.1 : Given Null Mood should return Happy
+        /// Handling null refrence exception
+        /// </summary>
+        [TestMethod]
+        [DataRow(null)]
+        public void Given_WhenNullMood_ThenReturn_HAPPY(string message)
+        {
+            //AAA- Arrange-Act-Assert
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+            //Arrange
+            string expected = "HAPPY";
+            //Act
+            string actual = moodAnalyser.AnalyseMood();
+            //Assert
+            //Using Assert class for testing
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

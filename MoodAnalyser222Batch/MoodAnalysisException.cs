@@ -18,7 +18,8 @@ namespace MoodAnalyser222Batch
             NO_SUCH_FIELD,
             NO_SUCH_METHODE,
             NO_SUCH_CLASS,
-            OBJECT_CREATION_ISSUE
+            OBJECT_CREATION_ISSUE,
+            CONSTRUCTOR_NOT_FOUND
         }
         ExceptionType type;
         /// <summary>

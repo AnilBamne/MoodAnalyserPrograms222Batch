@@ -84,7 +84,7 @@ namespace MoodAnalyserTest
         /// </summary>
         /// <param name="message"></param>
         [TestMethod]
-        [DataRow(null)]
+        [DataRow("")]
         public void Given_WhenEmptyMood_ThenReturn_ThrowExceptionMessage(string message)
         {
             //AAA- Arrange-Act-Assert

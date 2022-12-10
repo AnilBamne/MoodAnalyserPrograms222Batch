@@ -172,5 +172,49 @@ namespace MoodAnalyserTest
             object obj = MoodAnalyserFactory.CreateMoodAnalyzerUsingParameterizedConstructor(className, constructorName, moodMessage);
             expected.Equals(obj);
         }
+
+        /// <summary>
+        ///  UC5 - Reflection
+        ///  TC 5.2 Given Mood Analyser when class name with parameterized constructor.
+        ///  If class name is not propper then - return No such class error message
+        ///  MoodAnalyser <<- this is for class
+        /// </summary>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void GivenMoodAnalyzer_WhenClassNameNotPropper_ShouldReturn_NoSuchClassError()
+        {
+            string expected = "Class Not Found";
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyzerUsingParameterizedConstructor("MoodAnalyser222Batch.WrongClass", "MoodAnalyzer", "Happy");
+            }
+            catch (MoodAnalysisException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
+
+        /// <summary>
+        ///  UC5 - Reflection
+        ///  TC 5.3 Given Mood Analyser when class name with parameterized constructor.
+        ///  If constructor name is not propper then - return No such Method error message
+        ///  MoodAnalyser <<- this is for class
+        /// </summary>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        public void GivenMoodAnalyzer_WhenConstructorNameNotPropper_ShouldReturn_NoSuchMethodError()
+        {
+            string expected = "Constructor is Not Found";
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyzerUsingParameterizedConstructor("MoodAnalyser222Batch.MoodAnalyser", "WrongConstructor", "Happy");
+            }
+            catch (MoodAnalysisException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
+
+
     }
 }

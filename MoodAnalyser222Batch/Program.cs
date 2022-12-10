@@ -7,6 +7,7 @@ namespace MoodAnalyser222Batch
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Mood Analyser Program");
+            MoodAnalyser mood = new MoodAnalyser();
         }
     }
 }

@@ -61,5 +61,41 @@ namespace MoodAnalyserTest
             //Using Assert class for testing
             Assert.AreEqual(expected, actual);
         }
+        /// <summary>
+        /// UC3 - TC 3.1 when givem null input , inform user with exception
+        /// </summary>
+        /// <param name="message"></param>
+        [TestMethod]
+        [DataRow(null)]     
+        public void Given_WhenNullMood_ThenReturn_InformUser(string message)
+        {
+            //AAA- Arrange-Act-Assert
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+            //Arrange
+            string expected = "HAPPY";
+            //Act
+            string actual = moodAnalyser.AnalyseMood();
+            //Assert
+            //Using Assert class for testing
+            Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        /// UC3 - TC 3.2 when givem empty input , throw exception , show exception message
+        /// </summary>
+        /// <param name="message"></param>
+        [TestMethod]
+        [DataRow(null)]
+        public void Given_WhenEmptyMood_ThenReturn_ThrowExceptionMessage(string message)
+        {
+            //AAA- Arrange-Act-Assert
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+            //Arrange
+            string expected = "HAPPY";
+            //Act
+            string actual = moodAnalyser.AnalyseMood();
+            //Assert
+            //Using Assert class for testing
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

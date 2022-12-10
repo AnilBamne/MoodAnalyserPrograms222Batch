@@ -33,6 +33,12 @@ namespace MoodAnalyser222Batch
         {
             try
             {
+                //checking if msg passed is empty or not
+                if (message.Equals(string.Empty))                       //UC3 - TC 3.2
+                {
+                    //thows Exception If Empty Value
+                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
+                }
                 if (message.ToLower().Contains("sad"))      //comparing
                 {
                     return "SAD";
@@ -45,6 +51,8 @@ namespace MoodAnalyser222Batch
             catch                 //UC2 : Handling exception when given Null Mood 
             {
                 return "HAPPY";
+                //thows Exception If Null Value
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MESSAGE, "Mood Should not be null");            //UC3 - TC 3.1
             }
         }
     }

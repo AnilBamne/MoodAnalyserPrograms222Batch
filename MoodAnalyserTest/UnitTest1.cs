@@ -157,5 +157,20 @@ namespace MoodAnalyserTest
             object actualObj = moodAnalyserFactory.CreatingMoodAnalyserObject(className, constructorName);
             actualObj.Equals(expectedObj);   //comparing two objects ,if found Equal than test will be passed .
         }
+
+        /// <summary>
+        ///  UC5 - Reflection
+        ///  TC 5.1 Given Mood Analyser when class name with parameterized constructor should return object
+        ///  MoodAnalyser <<- this is for class
+        /// </summary>
+        [TestMethod]
+        [TestCategory("Reflection")]
+        [DataRow("MoodAnalyser222Batch.MoodAnalyser", "MoodAnalyser", "Happy")]
+        public void GivenMoodAnalyzer_WhenClassName_ShouldReturnMoodAnalyzerObjectUsingParameterizedConstructor(string className, string constructorName, string moodMessage)
+        {
+            object expected = new MoodAnalyser("Happy");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyzerUsingParameterizedConstructor(className, constructorName, moodMessage);
+            expected.Equals(obj);
+        }
     }
 }
